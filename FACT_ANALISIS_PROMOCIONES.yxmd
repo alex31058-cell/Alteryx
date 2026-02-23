@@ -1,0 +1,1449 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="12">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="582" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>select "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."COD_ESTILO",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."DESCRIPCION_CORTA",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."DESCRIPCION_LARGA",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."VENDEDOR_ESTILO",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NDEPARTAMENTO" "CODDEPARTAMENTO",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_JERARQUIA"."NOMBRE_GRUPO_JERARQUIA" "DEPARTAMENTO",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NCATEGORIA" "CODCATEGORIA",
+	"A"."NOMBRE_GRUPO_JERARQUIA" "CATEGORIA",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NCLASE" "CODCLASE",
+	"B"."NOMBRE_GRUPO_JERARQUIA" "CLASE",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NSUBCLASE" "CODSUBCLASE",
+	"C"."NOMBRE_GRUPO_JERARQUIA" "SUBCLASE",
+	"M"."NOMBRE_ATRIBUTO_MODIFICADO" as "MARCA",
+	"M"."CODIGO_ATRIBUTO_MODIFICADO" as "CODMARCA",
+	"PRD_TOVA"."DWH_COMPRAS"."DIM_PROVEEDOR"."COD_PROVEEDOR" as "CODPROVEEDOR",
+	"PRD_TOVA"."DWH_COMPRAS"."DIM_PROVEEDOR"."NOMBRE_PROVEEDOR" as "PROVEEDOR",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."ID_COLOR" as "IDCOLOR",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."DESC_LARGA_COLOR" as "COLOR_LARGO",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."DESC_CORTA_COLOR" as "COLOR",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."TAMANO_REETIQUETADO" as "TALLA",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."ID_ESTILO",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."SK_ID_ESTILO",
+	"PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."ID_SKU" 
+from "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO" 
+	inner join "PRD_TOVA"."DWH_COMPRAS"."DIM_PROVEEDOR" on "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."ID_PROVEEDOR" = "PRD_TOVA"."DWH_COMPRAS"."DIM_PROVEEDOR"."VENDOR_ID" 
+	inner join "PRD_TOVA"."DWH_COMUNES"."DIM_JERARQUIA" on "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NDEPARTAMENTO" = "PRD_TOVA"."DWH_COMUNES"."DIM_JERARQUIA"."COD_GRUPO_JERARQUIA" 
+	inner join "PRD_TOVA"."DWH_COMUNES"."DIM_JERARQUIA" "A" on "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NCATEGORIA" = "A"."COD_GRUPO_JERARQUIA" 
+	inner join "PRD_TOVA"."DWH_COMUNES"."DIM_JERARQUIA" "B" on "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NCLASE" = "B"."COD_GRUPO_JERARQUIA" 
+	inner join "PRD_TOVA"."DWH_COMUNES"."DIM_JERARQUIA" "C" on "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."NSUBCLASE" = "C"."COD_GRUPO_JERARQUIA" 
+	left join "PRD_TOVA"."DWH_DISTRIBUCION"."DIM_ENTIDAD_ATRIBUTO_MODIFICADO" "L" on "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."ID_ESTILO" = "L"."ID_PADRE" and "L"."ID_ATRIBUTO" = 33 and "L"."TIPO_ATRIBUTO" = 1 
+	left join "PRD_TOVA"."DWH_DISTRIBUCION"."DIM_ATRIBUTO_MODIFICADO" "M" on "L"."ID_ATRIBUTO_MODIFICADO" = "M"."ID_ATRIBUTO_MODIFICADO" 
+	left join "PRD_TOVA"."DWH_DISTRIBUCION"."DIM_ENTIDAD_ATRIBUTO_MODIFICADO" "N" on "PRD_TOVA"."DWH_COMUNES"."DIM_ESTILO"."ID_ESTILO" = "N"."ID_PADRE" and "N"."ID_ATRIBUTO" = 50 and "N"."TIPO_ATRIBUTO" = 1 
+	left join "PRD_TOVA"."DWH_DISTRIBUCION"."DIM_ATRIBUTO_MODIFICADO" "O" on "O"."ID_ATRIBUTO_MODIFICADO" = "N"."ID_ATRIBUTO_MODIFICADO"</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PARTE 4: JERARQUIA PRODUCTO</AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=select "PRD_TOVA"."DWH_COMUN...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="LockInGui.LockInJoin.LockInJoin">
+        <Position x="834" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinMode>LEFT</JoinMode>
+          <JoinFields>
+            <JoinInfo connection="Left">
+              <Field field="SKU_ID" />
+            </JoinInfo>
+            <JoinInfo connection="Right">
+              <Field field="ID_SKU" />
+            </JoinInfo>
+          </JoinFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Left Outer Join</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInJoin" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="222" y="289" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="102" y="289" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>SELECT
+S.FECHA_TRANSACCION::DATE as FECHA_TRANSACCION,
+S.ID_TRANSACCION AS ID_TRANSACCION_TICKETS,
+TO_NUMBER(CASE when  id_transaccion=379988 then 9999999990073 ELSE S.BK_SKU end) AS SKU_ID,
+T.ID_BASE AS BASE,
+T.NOMBRE_CADENA,
+T.NOMBRE_DISTRITO,
+T.COD_CADENA,
+SUM(S.MONTO_NETO_DETALLE) AS VENTA_POS,
+SUM(S.CANTIDAD) AS  CANTIDAD_VENTAS,
+SUM(S.COSTO_VENTA * S.CANTIDAD) AS COSTO_VENTAS
+FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS S
+INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES T ON S.BK_DIM_BASES = T.SK_ID_BASES
+WHERE YEAR(S.FECHA_TRANSACCION) &gt;= (YEAR(CURRENT_DATE()) - (CASE WHEN MONTH(CURRENT_DATE()) = 1 THEN 2 ELSE 1 END)) 
+AND DATE_TRUNC('DAY',S.FECHA_PROCESO) &lt; CURRENT_DATE()
+GROUP BY 1,2,3,4,5,6,7</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PARTE 3: INCLUIR VENTAS DEL AÑO ACTUAL Y EL ANTERIOR.</AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=SELECT
+S.FECHA_TRANSACCION:...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="90" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>SELECT 
+A.FECHA_TRANSACCION::DATE as FECHA_TRANSACCION,
+A.SKU_ID, 
+B.ID_BASE AS BASE,
+B.NOMBRE_CADENA,
+B.NOMBRE_DISTRITO,
+B.COD_CADENA,
+Sum(A.UNIDADES_AFECTADAS) AS CANTIDAD,
+Sum(A.COSTO_TRASACCION) AS COSTO
+FROM PRD_TOVA.DWH_DISTRIBUCION.FACT_MERCH_INVENTARIO_DETALLE A
+INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES B ON A.BK_DIM_BASES = B.SK_ID_BASES
+WHERE YEAR(A.FECHA_TRANSACCION ) &gt;= (YEAR(CURRENT_DATE()) - (CASE WHEN MONTH(CURRENT_DATE()) = 1 THEN 2 ELSE 1 END)) 
+GROUP BY 1,2,3,4,5,6</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText><![CDATA[PARTE 2: INV DESDE EL 01/01/20XX ]]></AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=SELECT 
+A.FECHA_TRANSACCION...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="LockInGui.LockInSummarize.LockInSummarize">
+        <Position x="270" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="FECHA_TRANSACCION" action="Max" rename="FECHA_TRANSACCION" />
+            <SummarizeField field="SKU_ID" action="GroupBy" rename="SKU_ID" />
+            <SummarizeField field="BASE" action="GroupBy" rename="BASE" />
+            <SummarizeField field="NOMBRE_CADENA" action="GroupBy" rename="NOMBRE_CADENA" />
+            <SummarizeField field="NOMBRE_DISTRITO" action="GroupBy" rename="NOMBRE_DISTRITO" />
+            <SummarizeField field="COD_CADENA" action="GroupBy" rename="COD_CADENA" />
+            <SummarizeField field="CANTIDAD" action="Sum" rename="CANTIDAD_INVENTARIO" />
+            <SummarizeField field="COSTO" action="Sum" rename="COSTO_INVENTARIO" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSummarize" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="162" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="1">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="66" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>SELECT 
+(add_months(date_trunc('year',CURRENT_DATE()),-12)-1)::DATE as FECHA_TRANSACCION,
+A.SKU_ID, 
+B.ID_BASE AS BASE,
+B.NOMBRE_CADENA,
+B.NOMBRE_DISTRITO,
+B.COD_CADENA, 
+Sum(A.UNIDADES_AFECTADAS) AS CANTIDAD,
+Sum(A.COSTO_TRASACCION) AS COSTO
+FROM PRD_TOVA.DWH_DISTRIBUCION.FACT_MERCH_INVENTARIO_DETALLE A
+INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES B ON A.BK_DIM_BASES = B.SK_ID_BASES
+WHERE YEAR(A.FECHA_TRANSACCION ) &lt; (YEAR(CURRENT_DATE()) - (CASE WHEN MONTH(CURRENT_DATE()) = 1 THEN 2 ELSE 1 END))
+GROUP BY 1,2,3,4,5,6</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PARTE 1: GUARDA EL INV AL 31/12/20XX</AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=SELECT 
+(add_months(date_tr...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="690" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="IDCOLOR" selected="False" />
+            <SelectField field="ID_ESTILO" selected="False" />
+            <SelectField field="SK_ID_ESTILO" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="102" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>SELECT 
+A.FECHA::DATE AS FECHA_TRANSACCION,
+B.ID_BASE AS BASE,
+B.NOMBRE_CADENA,
+B.NOMBRE_DISTRITO,
+B.COD_CADENA,
+MAX(A.CONTEO_CLIENTES) AS CONTEO_CLIENTES
+FROM PRD_TOVA.DWH_REPORT_VENTAS.FACT_AFLUENCIA_CLIENTE A
+INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES B ON A.BASE = B.ID_BASE
+WHERE A.CONTEO_CLIENTES != 0
+GROUP BY 1,2,3,4,5
+ORDER BY 1</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PARTE 5: AFLUENCIA DE CLIENTES</AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=SELECT 
+A.FECHA::DATE AS FE...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="21">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="222" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="114" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>SELECT
+C.FECHA_CREACION::DATE AS  FECHA_CREACION,
+C.NUM_ORDEN_COMPRA AS OC,
+C.BK_SKU  AS SKU_ID,
+T.ID_BASE AS BASE,
+T.NOMBRE_CADENA,
+T.NOMBRE_DISTRITO,
+T.COD_CADENA
+FROM PRD_TOVA.DWH_COMPRAS.FACT_COMPRAS C
+INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES T ON C.BK_DIM_BASE   = T.SK_ID_BASES 
+WHERE YEAR(C.FECHA_CREACION ) &gt;= (YEAR(CURRENT_DATE()) - (CASE WHEN MONTH(CURRENT_DATE()) = 1 THEN 2 ELSE 1 END))
+GROUP BY 1,2,3,4,5,6,7</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PARTE 6: INCLUIR  OC</AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=SELECT
+C.FECHA_CREACION::DA...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="222" y="534" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="LockInGui.LockInFormula.LockInFormula">
+        <Position x="1098" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ValidateBeforeRun value="True" />
+          <FormulaFields>
+            <FormulaField field="FECHA_ACTUALIZACION" type="DateTime" expression="GETDATE()" />
+            <FormulaField field="FECHA_ACTUALIZACION_1" type="Double" expression="GETDATE()" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FECHA_ACTUALIZACION</AnnotationText>
+          <DefaultAnnotationText>FECHA_ACTUALIZACION=GETDATE()
+FECHA_ACTUALIZACION_1=GETDATE()</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFormula" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="102" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>SELECT
+A.FECHA_CREACION_ASN::DATE AS  FECHA_CREACION,
+A.NUMERO_ASN AS ASN,
+A.ID_SKU AS SKU_ID,
+T.ID_BASE AS BASE,
+T.NOMBRE_CADENA,
+T.NOMBRE_DISTRITO,
+T.COD_CADENA
+FROM PRD_TOVA.DWH_COMPRAS.FACT_ASN A
+INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES T ON A.SK_ID_BASES   = T.SK_ID_BASES  
+WHERE YEAR(A.FECHA_CREACION_ASN) &gt;= (YEAR(CURRENT_DATE()) - (CASE WHEN MONTH(CURRENT_DATE()) = 1 THEN 2 ELSE 1 END))
+GROUP BY 1,2,3,4,5,6,7</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PARTE 7: INCLUIR ASN</AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=SELECT
+A.FECHA_CREACION_ASN...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="234" y="630" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="LockInGui.LockInJoin.LockInJoin">
+        <Position x="1182" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinMode>LEFT</JoinMode>
+          <JoinFields>
+            <JoinInfo connection="Left">
+              <Field field="COD_CADENA" />
+              <Field field="CODDEPARTAMENTO" />
+              <Field field="CODCATEGORIA" />
+            </JoinInfo>
+            <JoinInfo connection="Right">
+              <Field field="SK_COD_CADENA" />
+              <Field field="SK_COD_DEPARTAMENTO" />
+              <Field field="SK_COD_CATEGORIA" />
+            </JoinInfo>
+          </JoinFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Left Outer Join</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInJoin" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="990" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query>select * 
+from "PRD_TOVA"."DWH_COMUNES"."DIM_ACCESOS_COMPRADORES"</Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PARTE 8: FILTRO COMPRADOR</AnnotationText>
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=select * 
+from "PRD_TOVA"."...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="LockInGui.LockInFormula.LockInFormula">
+        <Position x="1278" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ValidateBeforeRun value="True" />
+          <FormulaFields>
+            <FormulaField field="COMPRADOR_CONCATENADO" type="V_WString" expression="CASE&#xD;&#xA;	WHEN &quot;COMPRADOR_CONCATENADO&quot; IS NULL AND &quot;CONTEO_CLIENTES&quot; &gt; 0 THEN 'NA'&#xD;&#xA;	WHEN &quot;COMPRADOR_CONCATENADO&quot; IS NULL THEN 'N/A'&#xD;&#xA;	ELSE &quot;COMPRADOR_CONCATENADO&quot;&#xD;&#xA;END" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FORM COMPRADOR</AnnotationText>
+          <DefaultAnnotationText>COMPRADOR_CONCATENADO=CASE
+	WHEN "COMPRADOR_CONCATENADO" IS ...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFormula" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="1374" y="186" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="COD_CADENA" selected="False" />
+            <SelectField field="DESCRIPCION_CORTA" selected="False" />
+            <SelectField field="COLOR_LARGO" selected="False" />
+            <SelectField field="COLOR" selected="False" />
+            <SelectField field="TALLA" selected="False" />
+            <SelectField field="SK_COD_CADENA" selected="False" />
+            <SelectField field="R_NOMBRE_CADENA" selected="False" />
+            <SelectField field="SK_COD_DEPARTAMENTO" selected="False" />
+            <SelectField field="R_DEPARTAMENTO" selected="False" />
+            <SelectField field="SK_COD_CATEGORIA" selected="False" />
+            <SelectField field="R_CATEGORIA" selected="False" />
+            <SelectField field="TODAS_LAS_CADENAS" selected="False" />
+            <SelectField field="STEVENS" selected="False" />
+            <SelectField field="MADCAM" selected="False" />
+            <SelectField field="ID_PROCESO" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="930" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ID_SKU" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="210" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="CANTIDAD" selected="True" rename="CANTIDAD_INVENTARIO" />
+            <SelectField field="COSTO" selected="True" rename="COSTO_INVENTARIO" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="690" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="LockInGui.LockInUnion.LockInUnion">
+        <Position x="534" y="162" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>ByName</Mode>
+          <FieldMode>All</FieldMode>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInUnion" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="LockInGui.LockInFormula.LockInFormula">
+        <Position x="1014" y="174" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ValidateBeforeRun value="True" />
+          <FormulaFields>
+            <FormulaField field="DEPARTAMENTO" type="V_WString" expression="CASE WHEN &quot;DEPARTAMENTO&quot; IS NULL THEN 'NA' ELSE &quot;DEPARTAMENTO&quot; END&#xD;&#xA;" />
+            <FormulaField field="CATEGORIA" type="V_WString" expression="CASE WHEN &quot;CATEGORIA&quot; IS NULL THEN 'NA' ELSE &quot;CATEGORIA&quot; END&#xD;&#xA;" />
+            <FormulaField field="CLASE" type="V_WString" expression="CASE WHEN &quot;CLASE&quot; IS NULL THEN 'NA' ELSE &quot;CLASE&quot; END&#xD;&#xA;" />
+            <FormulaField field="SUBCLASE" type="V_WString" expression="CASE WHEN &quot;SUBCLASE&quot; IS NULL THEN 'NA' ELSE &quot;SUBCLASE&quot; END&#xD;&#xA;" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Formulas Jerarquía</AnnotationText>
+          <DefaultAnnotationText>DEPARTAMENTO=CASE WHEN "DEPARTAMENTO" IS NULL THEN 'NA' ELSE ...
+CATEGORIA=CASE WHEN "CATEGORIA" IS NULL THEN 'NA' ELSE "CATEG...
+CLASE=CASE WHEN "CLASE" IS NULL THEN 'NA' ELSE "CLASE" END
+
+...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFormula" />
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="LockInGui.LockInInput.LockInInput">
+        <Position x="1290" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Connection>PRD_TOVA_SNOWFLAKE</Connection>
+          <Query><![CDATA[select DWH_REPORT_ANALISIS_DETALLADO.FACT_CONSOLIDADO_ANALISIS_DETALLADO.A_ESTILO as ESTILO,
+DWH_REPORT_ANALISIS_DETALLADO.FACT_CONSOLIDADO_ANALISIS_DETALLADO.A_CADENA_DESTINO as CADENA_DESTINO,
+    MAX(DWH_REPORT_ANALISIS_DETALLADO.FACT_CONSOLIDADO_ANALISIS_DETALLADO.A_COSTO_FINAL_NETO) as COSTO_FINAL_NETO,
+	MIN(CASE WHEN DWH_REPORT_ANALISIS_DETALLADO.FACT_CONSOLIDADO_ANALISIS_DETALLADO.A_ESTILO = 'NA' THEN 0 ELSE B.A_PRECIO_MIN END) as PRECIO_VENTA_ACT_MIN,
+	Min(DWH_REPORT_ANALISIS_DETALLADO.FACT_CONSOLIDADO_ANALISIS_DETALLADO.A_PRECIO_VENTA_ORIGINAL) as PRECIO_VENTA_ORIGINAL
+from DWH_REPORT_ANALISIS_DETALLADO.FACT_CONSOLIDADO_ANALISIS_DETALLADO 
+LEFT JOIN (SELECT
+        A."sku__custom_sql_query_" AS SKU,
+        MIN(CASE WHEN A."base" NOT IN (2,9,15,17,50,51,100,150,151) THEN A."precio_min" END) AS A_PRECIO_MIN
+        FROM
+        STG_REPORT.IG_V_DIAS_ANTIGUEDAD_FINAL AS A
+        LEFT JOIN DWH_COMUNES.DIM_ESTILO AS E ON A."sku__custom_sql_query_" = E.ID_SKU
+        GROUP BY 1) B ON DWH_REPORT_ANALISIS_DETALLADO.FACT_CONSOLIDADO_ANALISIS_DETALLADO.T_SKU = B.SKU
+ --WHERE A_COD_SUBCLASE = '21-01-010-01'
+group by 1,2 
+order by 1
+]]></Query>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Source=PRD_TOVA_SNOWFLAKE
+Query=select DWH_REPORT_ANALISIS_D...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInInput" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="1386" y="342" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="COSTO_FINAL_NETO" selected="True" />
+            <SelectField field="ESTILO" selected="True" />
+            <SelectField field="PRECIO_VENTA_ORIGINAL" selected="True" />
+            <SelectField field="PRECIO_VENTA_ACT_MIN" selected="True" />
+            <SelectField field="CADENA_DESTINO" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="LockInGui.LockInJoin.LockInJoin">
+        <Position x="1470" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinMode>LEFT</JoinMode>
+          <JoinFields>
+            <JoinInfo connection="Left">
+              <Field field="COD_ESTILO" />
+            </JoinInfo>
+            <JoinInfo connection="Right">
+              <Field field="ESTILO" />
+            </JoinInfo>
+          </JoinFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Left Outer Join</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInJoin" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="1554" y="198" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ASN" selected="True" />
+            <SelectField field="BASE" selected="True" />
+            <SelectField field="CADENA_DESTINO" selected="True" />
+            <SelectField field="CANTIDAD_INVENTARIO" selected="True" />
+            <SelectField field="CANTIDAD_VENTAS" selected="True" />
+            <SelectField field="CATEGORIA" selected="True" />
+            <SelectField field="CLASE" selected="True" />
+            <SelectField field="COD_ESTILO" selected="True" />
+            <SelectField field="CODCATEGORIA" selected="True" />
+            <SelectField field="CODCLASE" selected="True" />
+            <SelectField field="CODDEPARTAMENTO" selected="True" />
+            <SelectField field="CODMARCA" selected="True" />
+            <SelectField field="CODPROVEEDOR" selected="True" />
+            <SelectField field="CODSUBCLASE" selected="True" />
+            <SelectField field="COMPRADOR_CONCATENADO" selected="True" />
+            <SelectField field="COMPRADOR_DEPTO" selected="True" />
+            <SelectField field="CONTEO_CLIENTES" selected="True" />
+            <SelectField field="COSTO_FINAL_NETO" selected="True" />
+            <SelectField field="COSTO_INVENTARIO" selected="True" />
+            <SelectField field="COSTO_VENTAS" selected="True" />
+            <SelectField field="DEPARTAMENTO" selected="True" />
+            <SelectField field="DESCRIPCION_LARGA" selected="True" />
+            <SelectField field="ESTILO" selected="False" />
+            <SelectField field="FECHA_ACTUALIZACION" selected="True" />
+            <SelectField field="FECHA_ACTUALIZACION_1" selected="True" />
+            <SelectField field="FECHA_CREACION" selected="True" />
+            <SelectField field="FECHA_TRANSACCION" selected="True" />
+            <SelectField field="ID_TRANSACCION_TICKETS" selected="True" />
+            <SelectField field="MARCA" selected="True" />
+            <SelectField field="NOMBRE_CADENA" selected="True" />
+            <SelectField field="NOMBRE_DISTRITO" selected="True" />
+            <SelectField field="OC" selected="True" />
+            <SelectField field="PRECIO_VENTA_ACT_MIN" selected="True" />
+            <SelectField field="PRECIO_VENTA_ORIGINAL" selected="True" />
+            <SelectField field="PROVEEDOR" selected="True" />
+            <SelectField field="SKU_ID" selected="True" />
+            <SelectField field="SUBCLASE" selected="True" />
+            <SelectField field="VENDEDOR_ESTILO" selected="True" />
+            <SelectField field="VENTA_POS" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="821" width="624" height="697" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text><![CDATA[Cambios 
+TICKET 33668
+Fecha: 29/10/2025
+añadir los siguientes campos a la tabla PRD_TOVA.DWH_REPORT_VENTAS.FACT_ANALISIS_PROMOCIONES
+
+     Nombre del Campo
+Tipo de Dato
+COSTO_FINAL_NETO
+NUMBER(22,2)
+PRECIO_VENTA_ORIGINAL
+NUMBER(22,2)
+PIEZAS_ULTIMO_DESP
+NUMBER(21,6)
+
+Se realizaron los cambios, se añadiron los campos en la última entrada (Analisis detallado).
+Se cambió el flujo donde se actualiza de report p1 al conjunto de flujos de analisis detallado.
+
+
+Fecha: 06/01/2026 
+Se agregaron 2 campos: uno con la cantidad de estilos por Id_Transacción y otro con el monto total por Id_Transacción. Esto para realizar cálculos cuando se filtran tickets, para poder comparar la cantidad de tickets filtrados en tableau y poder tener el monto total de las transacciones al filtrar estilos.
+
+]]></Text>
+          <Font name="Arial" size="14.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor r="182" g="218" b="218" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="LockInGui.LockInJoin.LockInJoin">
+        <Position x="1926" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinMode>LEFT</JoinMode>
+          <JoinFields>
+            <JoinInfo connection="Left">
+              <Field field="ID_TRANSACCION_TICKETS" />
+            </JoinInfo>
+            <JoinInfo connection="Right">
+              <Field field="ID_TRANSACCION_TICKETS" />
+            </JoinInfo>
+          </JoinFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Left Outer Join</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInJoin" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="2226" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="L_R_ID_TRANSACCION_TICKETS" selected="False" />
+            <SelectField field="CountDistinct_COD_ESTILO" selected="True" rename="CANT_EST_TICKET" />
+            <SelectField field="R_ID_TRANSACCION_TICKETS" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+        <Position x="2010" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="COMPRADOR_DEPTO" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+    </Node>
+    <Node ToolID="66">
+      <GuiSettings Plugin="LockInGui.LockInJoin.LockInJoin">
+        <Position x="2118" y="222" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinMode>LEFT</JoinMode>
+          <JoinFields>
+            <JoinInfo connection="Left">
+              <Field field="ID_TRANSACCION_TICKETS" />
+            </JoinInfo>
+            <JoinInfo connection="Right">
+              <Field field="ID_TRANSACCION_TICKETS" />
+            </JoinInfo>
+          </JoinFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Left Outer Join</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInJoin" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2333" y="0" width="281" height="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 68</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="56">
+          <GuiSettings Plugin="LockInGui.LockInBrowse.LockInBrowse">
+            <Position x="2490" y="56" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+              <FirstNRecords>100</FirstNRecords>
+              <UseCache value="True" />
+              <DataFromCache>False</DataFromCache>
+              <CacheKey>94ba4b9eb4e15bfe080d066f55195d76</CacheKey>
+              <TempFile>E:\ProgramData\Alteryx\Engine\Engine_10256_._AlteryxInDBBrowseCache_94ba4b9eb4e15bfe080d066f55195d76.yxdb</TempFile>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>First 100 records
+Caching enabled</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInBrowse" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings Plugin="LockInGui.LockInFilter.LockInFilter">
+            <Position x="2358" y="49" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Custom</Mode>
+              <Expression>"ID_TRANSACCION_TICKETS" IN (1768266,2563939,2564515,3366240,5332097,5314038)</Expression>
+              <ValidateBeforeRun value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>"ID_TRANSACCION_TICKETS" IN (1768266,2563939,2564515,3366240,...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFilter" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1673" y="305" width="204" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Cuenta Estilos x Ticket</Caption>
+          <Style TextColor="#314c4a" FillColor="#b0ffff" BorderColor="#800080" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Cuenta Estilos x Ticket</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="52">
+          <GuiSettings Plugin="LockInGui.LockInSummarize.LockInSummarize">
+            <Position x="1782" y="354" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="ID_TRANSACCION_TICKETS" action="GroupBy" rename="ID_TRANSACCION_TICKETS" />
+                <SummarizeField field="COD_ESTILO" action="CountDistinct" rename="CountDistinct_COD_ESTILO" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSummarize" />
+        </Node>
+        <Node ToolID="57">
+          <GuiSettings Plugin="LockInGui.LockInFormula.LockInFormula">
+            <Position x="1698" y="354" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ValidateBeforeRun value="True" />
+              <FormulaFields>
+                <FormulaField field="COD_ESTILO" type="V_WString" expression="IFF(COD_ESTILO IS NULL, SKU_ID, COD_ESTILO)" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>FORMULA ESTILO - SKU</AnnotationText>
+              <DefaultAnnotationText>COD_ESTILO=IFF(COD_ESTILO IS NULL, SKU_ID, COD_ESTILO)</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFormula" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2405" y="269" width="154" height="195" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>prd_tova</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>prd_tova</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="4">
+          <GuiSettings Plugin="LockInGui.LockInOutput.LockInOutput">
+            <Position x="2430" y="318" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormatSpecificOptions />
+              <Table>DWH_REPORT_VENTAS.FACT_ANALISIS_PROMOCIONES</Table>
+              <CreateMode>Delete</CreateMode>
+              <AppendMode>ByName</AppendMode>
+              <AppendFieldMode>All</AppendFieldMode>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Table=DWH_REPORT_VENTAS.FACT_ANALISIS_PROMOCIONES</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1625" y="533" width="433" height="225" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Vta POS x ID_Ticket</Caption>
+          <Style TextColor="#314c4a" FillColor="#cbfee9" BorderColor="#800080" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>Vta POS x ID_Ticket</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="59">
+          <GuiSettings Plugin="LockInGui.LockInSummarize.LockInSummarize">
+            <Position x="1722" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="ID_TRANSACCION_TICKETS" action="GroupBy" rename="ID_TRANSACCION_TICKETS" />
+                <SummarizeField field="COMPRADOR_DEPTO" action="GroupBy" rename="COMPRADOR_DEPTO" />
+                <SummarizeField field="VENTA_POS" action="Sum" rename="Sum_VENTA_POS" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSummarize" />
+        </Node>
+        <Node ToolID="60">
+          <GuiSettings Plugin="LockInGui.LockInFormula.LockInFormula">
+            <Position x="1650" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ValidateBeforeRun value="True" />
+              <FormulaFields>
+                <FormulaField field="COD_ESTILO" type="V_WString" expression="IFF(COD_ESTILO IS NULL, SKU_ID, COD_ESTILO)" />
+                <FormulaField field="COMPRADOR_DEPTO" type="V_WString" expression="''" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>FORMULA ESTILO - SKU</AnnotationText>
+              <DefaultAnnotationText>COD_ESTILO=IFF(COD_ESTILO IS NULL, SKU_ID, COD_ESTILO)
+COMPRADOR_DEPTO=''</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFormula" />
+        </Node>
+        <Node ToolID="62">
+          <GuiSettings Plugin="LockInGui.LockInFormula.LockInFormula">
+            <Position x="1806" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ValidateBeforeRun value="True" />
+              <FormulaFields>
+                <FormulaField field="Sum_VENTA_POS" type="Double" expression="CAST(&quot;Sum_VENTA_POS&quot; AS VARCHAR(255))" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Sum_VENTA_POS=CAST("Sum_VENTA_POS" AS VARCHAR(255))</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFormula" />
+        </Node>
+        <Node ToolID="63">
+          <GuiSettings Plugin="LockInGui.LockInFormula.LockInFormula">
+            <Position x="1890" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ValidateBeforeRun value="True" />
+              <FormulaFields>
+                <FormulaField field="COMPRADOR_DEPTO" type="V_WString" expression="IFF (&quot;COMPRADOR_DEPTO&quot; = '', &quot;Sum_VENTA_POS&quot;, '0')" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>COMPRADOR_DEPTO=IFF ("COMPRADOR_DEPTO" = '', "Sum_VENTA_POS",...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInFormula" />
+        </Node>
+        <Node ToolID="64">
+          <GuiSettings Plugin="LockInGui.LockInSelect.LockInSelect">
+            <Position x="1974" y="582" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ID_TRANSACCION_TICKETS" selected="True" />
+                <SelectField field="COMPRADOR_DEPTO" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="LockInEngine.dll" EngineDllEntryPoint="AlteryxLockInSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="21" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#5">
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#6">
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output" />
+      <Destination ToolID="14" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="14" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="21" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Output" />
+      <Destination ToolID="24" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="28" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="28" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="49" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="49" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="53" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="53" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="Output" />
+      <Destination ToolID="66" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="66" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="True" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="63" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>FACT_ANALISIS_PROMOCIONES</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="4ac86c48-2e66-4759-a1e3-f5f3e81bca1d" />
+      <Telemetry>
+        <PreviousWorkflowId value="da0bc0b3-e73e-481a-b843-48ba55d4d46e" />
+        <OriginWorkflowId value="65f08449-0cfc-4c83-9e22-b65ccbc399e4" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
