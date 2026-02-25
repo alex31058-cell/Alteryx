@@ -1,2 +1,0 @@
-# Alteryx
-Leer flujos Alteryx
