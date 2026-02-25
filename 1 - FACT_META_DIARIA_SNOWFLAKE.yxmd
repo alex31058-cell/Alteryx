@@ -1,0 +1,1581 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="320" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ID_BASE" selected="True" type="Int64" size="8" />
+            <SelectField field="ANIO_META" selected="True" type="Int64" size="8" />
+            <SelectField field="MES_NUM" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="368" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="DEPARTAMENTO" selected="False" />
+            <SelectField field="VENTA_ECOMMERCE" selected="True" size="5" />
+            <SelectField field="CATEGORIA" selected="False" />
+            <SelectField field="Venta_Costo" selected="True" size="15.2" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings>
+        <Position x="452" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Check Box (135)">False</Value>
+          <Value name="Check Box (136)">False</Value>
+          <Value name="List Box (11)">"Venta_POS","Venta_Costo"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">False</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="548" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Venta_POS]-[Venta_Costo]" field="ROS_Diario" size="19.2" type="FixedDecimal" enabled="true" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[ROS_Diario = [Venta_POS]-[Venta_Costo]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1147" y="233" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="644" y="414" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="CODDEPARTAMENTO" />
+            <Field name="CODCATEGORIA" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>iif(isnull([_CurrentField_]),'NA',[_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>iif(isnull([_CurrentField_]),'NA',[_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="739" y="413" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Venta_POS" selected="True" rename="VENTA_POS" />
+            <SelectField field="Venta_Costo" selected="True" rename="VENTA_COSTO" />
+            <SelectField field="ROS_Diario" selected="True" rename="ROS" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="692" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ANIO_META" selected="True" rename="ANIO" />
+            <SelectField field="MES_NUM" selected="True" rename="MES" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="1339" y="233" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="ID_BASE" action="GroupBy" rename="ID_BASE" />
+            <SummarizeField field="ANIO" action="GroupBy" rename="ANIO" />
+            <SummarizeField field="MES" action="GroupBy" rename="MES" />
+            <SummarizeField field="FECHA" action="GroupBy" rename="FECHA" />
+            <SummarizeField field="CODDEPARTAMENTO" action="GroupBy" rename="CODDEPARTAMENTO" />
+            <SummarizeField field="CODCATEGORIA" action="GroupBy" rename="CODCATEGORIA" />
+            <SummarizeField field="VENTA_POS" action="Sum" rename="VENTA_POS" />
+            <SummarizeField field="VENTA_COSTO" action="Sum" rename="VENTA_COSTO" />
+            <SummarizeField field="ROS" action="Sum" rename="ROS" />
+            <SummarizeField field="META_POS_DIARIO" action="Sum" rename="META_POS_DIARIO" />
+            <SummarizeField field="META_COSTO_DIARIO" action="Sum" rename="META_COSTO_DIARIO" />
+            <SummarizeField field="META_ROS_DIARIO" action="Sum" rename="META_ROS_DIARIO" />
+            <SummarizeField field="VENTA_POS_ECOM" action="Sum" rename="VENTA_POS_ECOM" />
+            <SummarizeField field="VENTA_COSTO_ECOM" action="Sum" rename="VENTA_COSTO_ECOM" />
+            <SummarizeField field="ROS_ECOM" action="Sum" rename="ROS_ECOM" />
+            <SummarizeField field="META_POS_DIARIO_ECOM" action="Sum" rename="META_POS_DIARIO_ECOM" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1460" y="474" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="1592" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="CODDEPARTAMENTO" />
+            <Field field="CODCATEGORIA" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="CODDEPARTAMENTO" />
+            <Field field="CODCATEGORIA" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_CODDEPARTAMENTO" selected="False" rename="Right_CODDEPARTAMENTO" input="Right_" />
+                <SelectField field="Right_CODCATEGORIA" selected="False" rename="Right_CODCATEGORIA" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+        <Position x="1723" y="245" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ByName_ErrorMode>Warning</ByName_ErrorMode>
+          <ByName_OutputMode>All</ByName_OutputMode>
+          <Mode>ByName</Mode>
+          <SetOutputOrder value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="2204" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="ID_BASE" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="ID_BASE" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_ID_BASE" selected="False" rename="Right_ID_BASE" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2384" y="318" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="COD_CADENA" selected="True" />
+            <SelectField field="NOMBRE_CADENA" selected="True" />
+            <SelectField field="COD_DISTRITO" selected="True" />
+            <SelectField field="NOMBRE_DISTRITO" selected="True" />
+            <SelectField field="ID_BASE" selected="True" />
+            <SelectField field="ANIO" selected="True" />
+            <SelectField field="MES" selected="True" />
+            <SelectField field="FECHA" selected="True" />
+            <SelectField field="CODDEPARTAMENTO" selected="True" />
+            <SelectField field="CODCATEGORIA" selected="True" />
+            <SelectField field="DEPARTAMENTO" selected="True" />
+            <SelectField field="CATEGORIA" selected="True" />
+            <SelectField field="META_POS_DIARIO" selected="True" size="20.2" />
+            <SelectField field="META_ROS_DIARIO" selected="True" size="20.2" />
+            <SelectField field="META_COSTO_DIARIO" selected="True" size="20.2" />
+            <SelectField field="Venta_POS" selected="True" />
+            <SelectField field="VENTA_COSTO" selected="True" />
+            <SelectField field="ROS" selected="True" />
+            <SelectField field="VENTA_POS_ECOM" selected="True" />
+            <SelectField field="VENTA_COSTO_ECOM" selected="True" />
+            <SelectField field="ROS_ECOM" selected="True" />
+            <SelectField field="META_POS_DIARIO_ECOM" selected="True" size="20.2" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1892" y="606" width="240" height="40" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Select *
+from dwh_tova.dim_Bases</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="1003" y="617" width="648" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>select DWH_TOVA.DIM_ESTILO.NDEPARTAMENTO CODDEPARTAMENTO,
+	DWH_TOVA.DIM_JERARQUIA.NOMBRE_GRUPO_JERARQUIA DEPARTAMENTO,
+	DWH_TOVA.DIM_ESTILO.NCATEGORIA CODCATEGORIA,
+	A.NOMBRE_GRUPO_JERARQUIA CATEGORIA
+from DWH_TOVA.DIM_ESTILO 
+	inner join DWH_TOVA.DIM_JERARQUIA on DWH_TOVA.DIM_ESTILO.NDEPARTAMENTO = DWH_TOVA.DIM_JERARQUIA.COD_GRUPO_JERARQUIA 
+	inner join DWH_TOVA.DIM_JERARQUIA A on DWH_TOVA.DIM_ESTILO.NCATEGORIA = A.COD_GRUPO_JERARQUIA 
+group by 1, 2, 3, 4</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="55" y="569" width="432" height="288" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>SELECT db.ID_BASE, 
+year(fv.FECHA_TRANSACCION) as 'ANIO',
+month(fv.FECHA_TRANSACCION) as 'MES',
+cast(fv.FECHA_TRANSACCION as date) as 'FECHA',
+de.NDEPARTAMENTO as 'CODDEPARTAMENTO',
+dj.NOMBRE_GRUPO_JERARQUIA as 'DEPARTAMENTO',
+de.NCATEGORIA as 'CODCATEGORIA',
+A.NOMBRE_GRUPO_JERARQUIA as 'CATEGORIA',
+fv.VENTA_ECOMMERCE,
+Sum(fv.MONTO_NETO_DETALLE) as 'Venta_POS',
+Sum(fv.COSTO_VENTA * fv.CANTIDAD) as 'Venta_Costo'
+FROM DWH_TOVA.FACT_VENTAS fv
+inner join DWH_TOVA.DIM_BASES db on fv.BK_DIM_BASES  = db.SK_ID_BASES  
+left join DWH_TOVA.DIM_ESTILO de on fv.BK_SKU = de.ID_SKU
+left join DWH_TOVA.DIM_JERARQUIA dj on de.NDEPARTAMENTO = dj.COD_GRUPO_JERARQUIA 
+left join DWH_TOVA.DIM_JERARQUIA A on de.NCATEGORIA = A.COD_GRUPO_JERARQUIA 
+where year(fv.FECHA_TRANSACCION) &gt;= year(getdate()-1)  and cast(fv.FECHA_TRANSACCION as date) &lt; cast(getdate() as date)
+group by 1, 2, 3, 4, 5, 6, 7, 8, 9</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="79" y="77" width="100" height="52" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>INT META DIARIA REGULAR</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="Yellow" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="79" y="233" width="100" height="52" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>INT META DIARIA ECOMMERCE</Text>
+          <Font name="Arial" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="Yellow" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="319" y="233" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ID_BASE" selected="True" type="Int64" size="8" />
+            <SelectField field="ANIO_META" selected="True" type="Int64" size="8" />
+            <SelectField field="MES_NUM" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="65">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="691" y="233" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ANIO_META" selected="True" rename="ANIO" />
+            <SelectField field="MES_NUM" selected="True" rename="MES" />
+            <SelectField field="META_POS_DIARIO" selected="True" rename="META_POS_DIARIO_ECOM" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="66">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="847" y="473" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>VENTA_ECOMMERCE</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2025-05-26 18:06:56</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <StartDate>2025-05-26 18:06:56</StartDate>
+              <EndDate>2025-05-26 18:06:56</EndDate>
+              <Operand>SI</Operand>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[VENTA_ECOMMERCE] = "SI"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="67">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="955" y="461" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="VENTA_ECOMMERCE" selected="False" />
+            <SelectField field="VENTA_POS" selected="True" rename="VENTA_POS_ECOM" />
+            <SelectField field="VENTA_COSTO" selected="True" rename="VENTA_COSTO_ECOM" />
+            <SelectField field="ROS" selected="True" rename="ROS_ECOM" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="68">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="931" y="377" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="VENTA_ECOMMERCE" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="69">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="1854" y="246" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Text</FieldType>
+          <Fields orderChanged="False">
+            <Field name="CODDEPARTAMENTO" />
+            <Field name="CODCATEGORIA" />
+            <Field name="DEPARTAMENTO" />
+            <Field name="CATEGORIA" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>iif(isnull([_CurrentField_]),'NA',[_CurrentField_])</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>iif(isnull([_CurrentField_]),'NA',[_CurrentField_])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="72">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="222" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords>4B9C68D15A4F1660D81C294397049F632D56F3258333EC002C8C37322CED37F7FF25123AB4ED301069308B66EA133B103F8A8</Passwords>
+          <File RecordLimit="" FileFormat="23">odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,
+ANIO_META,
+MES_NUM,
+FECHA,
+CODDEPARTAMENTO ,
+CODCATEGORIA, 
+META_POS_DIARIO,
+META_ROS_DIARIO,
+META_COSTO_DIARIO
+FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA
+WHERE (
+CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD("DAY",-1,GETDATE()))
+ELSE ANIO_META = YEAR(DATEADD("DAY",-1,GETDATE()))
+END
+)</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <SessionReadOnly>True</SessionReadOnly>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PRD SNOWFLAKE
+INT HIST META DIARIA</AnnotationText>
+          <DefaultAnnotationText>DSN=PRD_TOVA_SNOWFLAKE
+Query=SELECT ID_BASE,
+ANIO_META,...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ID_BASE" scale="0" size="22" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="ANIO_META" scale="0" size="22" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="MES_NUM" scale="0" size="22" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="FECHA" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="Date" />
+            <Field name="CODDEPARTAMENTO" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="V_WString" />
+            <Field name="CODCATEGORIA" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="V_WString" />
+            <Field name="META_POS_DIARIO" scale="6" size="20" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="META_ROS_DIARIO" scale="6" size="20" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="META_COSTO_DIARIO" scale="6" size="20" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO,&#xA;META_ROS_DIARIO,&#xA;META_COSTO_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="73">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="222" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords>4B9C68D15A4F1660D81C294397049F632D56F3258333EC002C8C37322CED37F7FF25123AB4ED301069308B66EA133B103F8A8</Passwords>
+          <File RecordLimit="" FileFormat="23">odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,
+ANIO_META,
+MES_NUM,
+FECHA,
+CODDEPARTAMENTO ,
+CODCATEGORIA, 
+META_POS_DIARIO
+FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM
+WHERE (
+CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD("DAY",-1,GETDATE()))
+ELSE ANIO_META = YEAR(DATEADD("DAY",-1,GETDATE()))
+END
+)</File>
+          <FormatSpecificOptions>
+            <PreSQL />
+            <PreSQLOnConfig>True</PreSQLOnConfig>
+            <NoProgress>True</NoProgress>
+            <SessionReadOnly>True</SessionReadOnly>
+            <CacheData>False</CacheData>
+            <TableStyle>Quoted</TableStyle>
+            <ReadUncommitted>False</ReadUncommitted>
+            <PostSQL />
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>PRD SNOWFLAKE
+INT HIST META DIARIA ECOM</AnnotationText>
+          <DefaultAnnotationText>DSN=PRD_TOVA_SNOWFLAKE
+Query=SELECT ID_BASE,
+ANIO_META,...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="ID_BASE" scale="0" size="22" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="ANIO_META" scale="0" size="22" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="MES_NUM" scale="0" size="22" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+            <Field name="FECHA" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="Date" />
+            <Field name="CODDEPARTAMENTO" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="V_WString" />
+            <Field name="CODCATEGORIA" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="V_WString" />
+            <Field name="META_POS_DIARIO" scale="6" size="20" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT ID_BASE,&#xA;ANIO_META,&#xA;MES_NUM,&#xA;FECHA,&#xA;CODDEPARTAMENTO ,&#xA;CODCATEGORIA, &#xA;META_POS_DIARIO&#xA;FROM PRD_TOVA.TNF_REPORT_HISTORICA.INT_HIST_FACT_META_DIARIA_ECOM&#xA;WHERE (&#xA;CASE WHEN (MONTH(GETDATE()) = 1 AND DAY(GETDATE()) = 1) THEN ANIO_META &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;ELSE ANIO_META = YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE()))&#xA;END&#xA;)" type="FixedDecimal" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="74">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="2058" y="306" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="ID_BASE" selected="True" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1997" y="425" width="143" height="133" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>DIM BASES</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffe9d2" BorderColor="#ff8040" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>DIM BASES</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="22">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2022" y="474" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="ID_BASE" selected="True" type="Int64" size="8" />
+                <SelectField field="COD_CADENA" selected="True" />
+                <SelectField field="NOMBRE_CADENA" selected="True" />
+                <SelectField field="COD_DISTRITO" selected="True" />
+                <SelectField field="NOMBRE_DISTRITO" selected="True" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1709" y="425" width="152" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 82</Caption>
+          <Style TextColor="#314c4a" FillColor="#ff8080" BorderColor="#ff0000" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="24">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="1734" y="474" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords>4B9C68D15A4F1660D81C294397049F632D56F3258333EC002C8C37322CED37F7FF25123AB4ED301069308B66EA133B103F8A8</Passwords>
+              <File RecordLimit="" FileFormat="23">odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *
+FROM PRD_TOVA.DWH_COMUNES.DIM_BASES</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <SessionReadOnly>True</SessionReadOnly>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>PRD DIM BASES
+SNOWFLAKE</AnnotationText>
+              <DefaultAnnotationText>DSN=PRD_TOVA_SNOWFLAKE
+Query=SELECT *
+FROM PRD_TOVA.DWH_...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="SK_ID_BASES" scale="0" size="39" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="ID_UBICACION" scale="0" size="39" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="COD_TIPO_BASE" scale="0" size="39" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="COD_BASE" size="5" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="NOMBRE_BASE" size="50" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="NOMBRE_CORTO_BASE" size="50" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="CENTRO_COSTO" size="6" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="METROS_CUADRADOS" scale="2" size="17" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="METROS_CUADRADOS_NO_DISP" scale="2" size="17" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="FECHA_APERTURA" size="19" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="DateTime" />
+                <Field name="FECHA_COMPARATIVA" size="19" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="DateTime" />
+                <Field name="FECHA_CIERRE" size="19" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="DateTime" />
+                <Field name="FECHA_INICIO_RECIBO" size="19" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="DateTime" />
+                <Field name="LATITUD" size="64" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="LONGITUD" size="64" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="ID_BASE" scale="0" size="39" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="LOCATION_GROUP_ID" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="Int64" />
+                <Field name="JERARQUIA_GROUP_ID" scale="0" size="39" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="ID_PROCESO" scale="0" size="39" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="FixedDecimal" />
+                <Field name="COD_CADENA" size="4" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="NOMBRE_CADENA" size="25" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="COD_DISTRITO" size="4" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+                <Field name="NOMBRE_DISTRITO" size="25" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT *&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_BASES" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1181" y="425" width="152" height="165" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 82</Caption>
+          <Style TextColor="#314c4a" FillColor="#ff8080" BorderColor="#ff0000" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="1206" y="474" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords>4B9C68D15A4F1660D81C294397049F632D56F3258333EC002C8C37322CED37F7FF25123AB4ED301069308B66EA133B103F8A8</Passwords>
+              <File RecordLimit="" FileFormat="23">odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT x.NDEPARTAMENTO as "CODDEPARTAMENTO",
+a.NOMBRE_GRUPO_JERARQUIA as "DEPARTAMENTO",
+x.NCATEGORIA as "CODCATEGORIA",
+b.NOMBRE_GRUPO_JERARQUIA as "CATEGORIA"
+FROM PRD_TOVA.DWH_COMUNES.DIM_ESTILO x
+inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA a on x.NDEPARTAMENTO = a.COD_GRUPO_JERARQUIA
+inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA b on x.NCATEGORIA = b.COD_GRUPO_JERARQUIA
+inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA c on x.NCLASE = c.COD_GRUPO_JERARQUIA
+inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA d on x.NSUBCLASE = d.COD_GRUPO_JERARQUIA
+group by 1, 2, 3, 4</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <SessionReadOnly>True</SessionReadOnly>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>PRD DIM ESTILO
+SNOWFLAKE</AnnotationText>
+              <DefaultAnnotationText>DSN=PRD_TOVA_SNOWFLAKE
+Query=SELECT x.NDEPARTAMENTO as "C...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="CODDEPARTAMENTO" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT x.NDEPARTAMENTO as &quot;CODDEPARTAMENTO&quot;,&#xA;a.NOMBRE_GRUPO_JERARQUIA as &quot;DEPARTAMENTO&quot;,&#xA;x.NCATEGORIA as &quot;CODCATEGORIA&quot;,&#xA;b.NOMBRE_GRUPO_JERARQUIA as &quot;CATEGORIA&quot;&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_ESTILO x&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA a on x.NDEPARTAMENTO = a.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA b on x.NCATEGORIA = b.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA c on x.NCLASE = c.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA d on x.NSUBCLASE = d.COD_GRUPO_JERARQUIA&#xA;group by 1, 2, 3, 4" type="V_WString" />
+                <Field name="DEPARTAMENTO" size="120" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT x.NDEPARTAMENTO as &quot;CODDEPARTAMENTO&quot;,&#xA;a.NOMBRE_GRUPO_JERARQUIA as &quot;DEPARTAMENTO&quot;,&#xA;x.NCATEGORIA as &quot;CODCATEGORIA&quot;,&#xA;b.NOMBRE_GRUPO_JERARQUIA as &quot;CATEGORIA&quot;&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_ESTILO x&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA a on x.NDEPARTAMENTO = a.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA b on x.NCATEGORIA = b.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA c on x.NCLASE = c.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA d on x.NSUBCLASE = d.COD_GRUPO_JERARQUIA&#xA;group by 1, 2, 3, 4" type="V_WString" />
+                <Field name="CODCATEGORIA" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT x.NDEPARTAMENTO as &quot;CODDEPARTAMENTO&quot;,&#xA;a.NOMBRE_GRUPO_JERARQUIA as &quot;DEPARTAMENTO&quot;,&#xA;x.NCATEGORIA as &quot;CODCATEGORIA&quot;,&#xA;b.NOMBRE_GRUPO_JERARQUIA as &quot;CATEGORIA&quot;&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_ESTILO x&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA a on x.NDEPARTAMENTO = a.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA b on x.NCATEGORIA = b.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA c on x.NCLASE = c.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA d on x.NSUBCLASE = d.COD_GRUPO_JERARQUIA&#xA;group by 1, 2, 3, 4" type="V_WString" />
+                <Field name="CATEGORIA" size="120" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT x.NDEPARTAMENTO as &quot;CODDEPARTAMENTO&quot;,&#xA;a.NOMBRE_GRUPO_JERARQUIA as &quot;DEPARTAMENTO&quot;,&#xA;x.NCATEGORIA as &quot;CODCATEGORIA&quot;,&#xA;b.NOMBRE_GRUPO_JERARQUIA as &quot;CATEGORIA&quot;&#xA;FROM PRD_TOVA.DWH_COMUNES.DIM_ESTILO x&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA a on x.NDEPARTAMENTO = a.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA b on x.NCATEGORIA = b.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA c on x.NCLASE = c.COD_GRUPO_JERARQUIA&#xA;inner join PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA d on x.NSUBCLASE = d.COD_GRUPO_JERARQUIA&#xA;group by 1, 2, 3, 4" type="V_WString" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2693" y="149" width="336" height="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>DEV_TOVA.DWH_REPORT.FACT_META_DIARIA</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>DEV_TOVA.DWH_REPORT.FACT_META_DIARIA</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="71">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="2718" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File MaxRecords="" FileFormat="65">snowbl:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__;Staging=local;Method=named;Stage=DWH_REPORT.STAGE_DWH_REPORT|||DWH_REPORT.FACT_META_DIARIA</File>
+              <Passwords>4B9C68D15A4F1660D81C294397049F632D56F3258333EC002C8C37322CED37F7FF25123AB4ED301069308B66EA133B103F8A8</Passwords>
+              <Disable>False</Disable>
+              <FormatSpecificOptions>
+                <IgnoreDropTableSQLErrors>False</IgnoreDropTableSQLErrors>
+                <PostSQL />
+                <ChunkSize>64</ChunkSize>
+                <TableStyle>Quoted</TableStyle>
+                <PreSQL>Delete FROM PRD_TOVA.DWH_REPORT.FACT_META_DIARIA
+WHERE ANIO = YEAR(DATEADD("DAY",-1,GETDATE()))</PreSQL>
+                <CompressionType>GZip</CompressionType>
+                <NumThreads>4</NumThreads>
+                <OutputOption>Append</OutputOption>
+              </FormatSpecificOptions>
+              <MultiFile value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>DSN=PRD_TOVA_SNOWFLAKE
+Query=DWH_REPORT.FACT_META_DIARIA</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="2634" y="424" width="505" height="417" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 88</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="37">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="3055" y="725" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\SMCAST~1\AppData\Local\Temp\3\Alteryx\Engine_2960_2399736a45e148ff9ad9d1d3ce64c7f8_\Engine_2960_5764576ddb78bc41a4a9a2d49bd09eac~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="38">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="2767" y="473" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="CODDEPARTAMENTO" action="GroupBy" rename="CODDEPARTAMENTO" />
+                <SummarizeField field="DEPARTAMENTO" action="GroupBy" rename="DEPARTAMENTO" />
+                <SummarizeField field="META_POS_DIARIO" action="Sum" rename="Sum_META_POS_DIARIO" />
+                <SummarizeField field="META_ROS_DIARIO" action="Sum" rename="Sum_META_ROS_DIARIO" />
+                <SummarizeField field="META_POS_DIARIO_ECOM" action="Sum" rename="Sum_META_POS_DIARIO_ECOM" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="39">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="2839" y="473" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="CODDEPARTAMENTO" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>CODDEPARTAMENTO - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="40">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="2935" y="473" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\SMCAST~1\AppData\Local\Temp\3\Alteryx\Engine_2960_2399736a45e148ff9ad9d1d3ce64c7f8_\Engine_2960_2f50fcdaa52b7a42905e22e426af90bb~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="41">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="2767" y="593" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="ID_BASE" action="GroupBy" rename="ID_BASE" />
+                <SummarizeField field="META_POS_DIARIO" action="Sum" rename="Sum_META_POS_DIARIO" />
+                <SummarizeField field="META_ROS_DIARIO" action="Sum" rename="Sum_META_ROS_DIARIO" />
+                <SummarizeField field="META_POS_DIARIO_ECOM" action="Sum" rename="Sum_META_POS_DIARIO_ECOM" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="42">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="2863" y="593" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="ID_BASE" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>ID_BASE - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="43">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+            <Position x="2959" y="593" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TempFile>C:\Users\SMCAST~1\AppData\Local\Temp\3\Alteryx\Engine_2960_2399736a45e148ff9ad9d1d3ce64c7f8_\Engine_2960_846847f3a86edd4e8537c38bf6521492~.yxdb</TempFile>
+              <TempFileDataProfiling />
+              <Layout>
+                <ViewMode>Single</ViewMode>
+                <ViewSize value="100" />
+                <View1>
+                  <DefaultTab>Profile</DefaultTab>
+                  <Hints>
+                    <Table />
+                  </Hints>
+                </View1>
+                <View2 />
+              </Layout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+        </Node>
+        <Node ToolID="44">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="2755" y="725" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>&gt;=</Operator>
+                <Field>FECHA</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2025-05-26 17:34:48</PeriodDate>
+                  <PeriodType>days</PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <StartDate>2025-05-26 17:34:48</StartDate>
+                  <EndDate>2025-05-26 17:34:48</EndDate>
+                  <Operand>2025-02-28</Operand>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[FECHA] &gt;= "2025-02-28"</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="45">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="2863" y="725" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="FECHA" action="GroupBy" rename="FECHA" />
+                <SummarizeField field="VENTA_POS" action="Sum" rename="Sum_VENTA_POS" />
+                <SummarizeField field="VENTA_COSTO" action="Sum" rename="Sum_VENTA_COSTO" />
+                <SummarizeField field="ROS" action="Sum" rename="Sum_ROS" />
+                <SummarizeField field="VENTA_POS_ECOM" action="Sum" rename="Sum_VENTA_POS_ECOM" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="46">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="2959" y="725" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="1033">
+                <Field field="FECHA" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>FECHA - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="48">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="2659" y="509" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="54" y="376" width="152" height="180" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 82</Caption>
+          <Style TextColor="#314c4a" FillColor="#ff8080" BorderColor="#ff0000" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="35">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="79" y="425" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords>4B9C68D15A4F1660D81C294397049F632D56F3258333EC002C8C37322CED37F7FF25123AB4ED301069308B66EA133B103F8A8</Passwords>
+              <File RecordLimit="" FileFormat="23">odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,
+YEAR(FV.FECHA_TRANSACCION) AS "ANIO",
+MONTH(FV.FECHA_TRANSACCION) AS "MES",
+FV.FECHA_TRANSACCION AS "FECHA",
+DE.NDEPARTAMENTO AS "CODDEPARTAMENTO",
+A.NOMBRE_GRUPO_JERARQUIA AS "DEPARTAMENTO",
+DE.NCATEGORIA AS "CODCATEGORIA",
+B.NOMBRE_GRUPO_JERARQUIA AS "CATEGORIA",
+FV.VENTA_ECOMMERCE,
+SUM(FV.MONTO_NETO_DETALLE) AS "VENTA_POS",
+SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS "VENTA_COSTO"
+FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV
+INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES
+LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU
+LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA
+LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA
+WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD("DAY",-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)
+GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9</File>
+              <FormatSpecificOptions>
+                <PreSQL />
+                <PreSQLOnConfig>True</PreSQLOnConfig>
+                <NoProgress>True</NoProgress>
+                <SessionReadOnly>True</SessionReadOnly>
+                <CacheData>False</CacheData>
+                <TableStyle>Quoted</TableStyle>
+                <ReadUncommitted>False</ReadUncommitted>
+                <PostSQL />
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <AnnotationText>PRD FACT VENTAS
+SNOWFLAKE</AnnotationText>
+              <DefaultAnnotationText>DSN=PRD_TOVA_SNOWFLAKE
+Query=SELECT DB.ID_BASE,
+YEAR(FV....</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="ID_BASE" scale="0" size="39" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="FixedDecimal" />
+                <Field name="ANIO" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="Int16" />
+                <Field name="MES" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="Int16" />
+                <Field name="FECHA" size="19" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="DateTime" />
+                <Field name="CODDEPARTAMENTO" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="V_WString" />
+                <Field name="DEPARTAMENTO" size="120" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="V_WString" />
+                <Field name="CODCATEGORIA" size="10" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="V_WString" />
+                <Field name="CATEGORIA" size="120" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="V_WString" />
+                <Field name="VENTA_ECOMMERCE" size="189" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="V_WString" />
+                <Field name="VENTA_POS" scale="2" size="27" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="FixedDecimal" />
+                <Field name="VENTA_COSTO" scale="2" size="40" source="File: odbc:DSN=PRD_TOVA_SNOWFLAKE;UID=USR_ALTERYX;PWD=__EncPwd1__|||SELECT DB.ID_BASE,&#xA;YEAR(FV.FECHA_TRANSACCION) AS &quot;ANIO&quot;,&#xA;MONTH(FV.FECHA_TRANSACCION) AS &quot;MES&quot;,&#xA;FV.FECHA_TRANSACCION AS &quot;FECHA&quot;,&#xA;DE.NDEPARTAMENTO AS &quot;CODDEPARTAMENTO&quot;,&#xA;A.NOMBRE_GRUPO_JERARQUIA AS &quot;DEPARTAMENTO&quot;,&#xA;DE.NCATEGORIA AS &quot;CODCATEGORIA&quot;,&#xA;B.NOMBRE_GRUPO_JERARQUIA AS &quot;CATEGORIA&quot;,&#xA;FV.VENTA_ECOMMERCE,&#xA;SUM(FV.MONTO_NETO_DETALLE) AS &quot;VENTA_POS&quot;,&#xA;SUM(FV.COSTO_VENTA * FV.CANTIDAD) AS &quot;VENTA_COSTO&quot;&#xA;FROM PRD_TOVA.DWH_VENTAS.FACT_VENTAS FV&#xA;INNER JOIN PRD_TOVA.DWH_COMUNES.DIM_BASES DB ON FV.BK_DIM_BASES = DB.SK_ID_BASES&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_ESTILO DE ON FV.BK_SKU = DE.ID_SKU&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA A ON DE.NDEPARTAMENTO = A.COD_GRUPO_JERARQUIA&#xA;LEFT JOIN PRD_TOVA.DWH_COMUNES.DIM_JERARQUIA B ON DE.NCATEGORIA = B.COD_GRUPO_JERARQUIA&#xA;WHERE YEAR(FV.FECHA_TRANSACCION) &gt;= YEAR(DATEADD(&quot;DAY&quot;,-1,GETDATE())) AND CAST(FV.FECHA_TRANSACCION AS DATE) &lt; CAST(GETDATE() AS DATE)&#xA;GROUP BY 1, 2, 3, 4, 5, 6, 7, 8, 9" type="FixedDecimal" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output26" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="65" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="19" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="19" Connection="Right" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="19" Connection="Join" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="19" Connection="Left" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Join" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="Output" />
+      <Destination ToolID="71" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="True" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Output" />
+      <Destination ToolID="74" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="72" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="73" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="74" Connection="Output" />
+      <Destination ToolID="26" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="26" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="24" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="True" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>1 - FACT_META_DIARIA_SNOWFLAKE</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="57b0b7fc-5141-4cdb-a94a-fdd6103e4d93" />
+      <Telemetry>
+        <PreviousWorkflowId value="43ffb4de-a8c4-43ae-adae-3ca19a2691cd" />
+        <OriginWorkflowId value="ad61afff-127c-4934-aabb-02cecdfa42ef" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

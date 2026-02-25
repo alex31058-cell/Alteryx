@@ -1,0 +1,254 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2024.1" RunE2="T">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings>
+        <Position x="54" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="File Browse (3)">1 - FACT_META_DIARIA_SNOWFLAKE.yxmd</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>FACT META DIARIA</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="CReW_Runner.yxmc" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings>
+        <Position x="150" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="File Browse (6)">2 - HYPER - META VENTAS DIARIAS.yxmd</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>HYPER META DIARIA</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="CReW_ConditionalRunner.yxmc" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings>
+        <Position x="270" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="File Browse (6)">3 - HYPER - META VENTAS AVANCE DIARIO.yxmd</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <AnnotationText>HYPER AVANCE DIARIO</AnnotationText>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="CReW_ConditionalRunner.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="401" y="149" width="397" height="149" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>SALIDA DE FLUJOS CON ERROR</Caption>
+          <Style TextColor="#314c4a" FillColor="#ecf2f2" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="426" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ByName</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="PortfolioPluginsGui.ComposerTable.PortfolioComposerTable">
+            <Position x="570" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <TableMode>Basic</TableMode>
+              <GroupingFields orderChanged="False">
+                <Field name="Module" />
+                <Field name="Result" />
+                <Field name="Errors" />
+                <Field name="FieldConversionErrors" />
+                <Field name="Warnings" />
+                <Field name="Time" />
+                <Field name="Log" />
+                <Field name="ModuleFullPath" />
+              </GroupingFields>
+              <Width>100%</Width>
+              <ShowHeader value="True" />
+              <ShowBarGraph value="False" />
+              <TableFields orderChanged="False">
+                <Field name="Module" selected="True" Alignment="Left" />
+                <Field name="Result" selected="True" Alignment="Left" />
+                <Field name="Errors" selected="True" Alignment="Right" />
+                <Field name="FieldConversionErrors" selected="True" Alignment="Right" />
+                <Field name="Warnings" selected="True" Alignment="Right" />
+                <Field name="Time" selected="True" Alignment="Left" />
+                <Field name="Log" selected="True" Alignment="Left" />
+                <Field name="ModuleFullPath" selected="True" Alignment="Left" />
+                <Field name="DateTimeNow" selected="True" Alignment="Right" />
+                <Field name="*Unknown" selected="True" Alignment="Right" />
+              </TableFields>
+              <TableStyles>
+                <Style Name="Data" Font="Arial" Size="8" TextColor="#000000" BackColor="#ffffff" AltColor="#f0f0f0" RowGroup="1" />
+                <Style Name="Header" Font="Arial" Size="10" TextColor="#000000" BackColor="#dbdbdb" />
+                <Style Name="Borders" Width="1" DataColor="#000000" HeaderColor="#000000" RowBorder="None" BasicColBorder="Default (Use Per Column Setting)" />
+                <Style Name="Table" CellPadding="0" ColumnPadding="0" TableBorder="true" Width="1" BorderColor="#000000" />
+              </TableStyles>
+              <StyleRules />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Basic Table</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxPortfolioComposerTablePlugin" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="PortfolioPluginsGui.Email.Email">
+            <Position x="714" y="198" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SMTPServerName>smtp.office365.com</SMTPServerName>
+              <ToIsField value="False" />
+              <To>NotificaBI@grupotova.com</To>
+              <CcIsField value="False" />
+              <Cc />
+              <BccIsField value="False" />
+              <Bcc />
+              <FromIsField value="False" />
+              <From>notificacionesBI@grupotova.com</From>
+              <SubjectIsField value="False" />
+              <Subject>PRD_SNOWFLAKE - RESUMEN PROCESO RUNNER META DIARIA BASES SNOWFLAKE- "ERROR"</Subject>
+              <BodyIsField value="True" />
+              <Body>Table</Body>
+              <UserName>notificacionesBI@grupotova.com</UserName>
+              <Enabled>True</Enabled>
+              <Password>4A6A26667B0EF1318A0E2ABB28E9034FB7876A5DA1BD2D9A2C3D6A91DE256F6772DBFE546C539E7DFA17CF9D2</Password>
+              <Port>587</Port>
+              <Encryption>STARTTLS</Encryption>
+              <SMTPAuth value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="PortfolioPluginsEngine.dll" EngineDllEntryPoint="AlteryxComposerEmail" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output24" />
+      <Destination ToolID="2" Connection="Input2" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="1" Connection="Output25" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="2" Connection="Output4" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="3" Connection="Output4" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output3" />
+      <Destination ToolID="3" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <IsTemplate value="False" />
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>RUNNER META DIARIA BASES SNOWFLAKE</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="d752e5d1-84f1-4930-b000-8dae1c220947" />
+      <Telemetry>
+        <PreviousWorkflowId value="97b0710e-a0e3-48ca-9f90-f7238800b07e" />
+        <OriginWorkflowId value="b5a1c3ad-60eb-43b2-9b7c-c74c691c3ab4" />
+      </Telemetry>
+      <PlatformWorkflowId value="" />
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
